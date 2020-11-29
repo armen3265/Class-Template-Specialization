@@ -6,18 +6,22 @@ enum class Color { red, green, orange };
 template <typename T> struct Traits;
 
 // Define specializations for the Traits class template here.
+Fruit fr;
+Color cl;
 template<>
 struct Traits<Fruit>
 {
+public:
     static string name(int i)
     {
-        switch (i)
+        fr = static_cast<Fruit>(i);
+        switch (fr)
         {
-        case 0:
+        case Fruit::apple:
             return "apple";
-        case 1:
+        case Fruit::orange:
             return "orange";
-        case 2:
+        case Fruit::pear:
             return "pear";
         }
         return "unknown";
@@ -27,15 +31,17 @@ struct Traits<Fruit>
 template<>
 struct Traits<Color>
 {
+public:
     static string name(int i)
     {
-        switch (i)
+        cl = static_cast<Color>(i);
+        switch (cl)
         {
-        case 0:
+        case Color::red:
             return "red";
-        case 1:
+        case Color::green:
             return "green";
-        case 2:
+        case Color::orange:
             return "orange";
         }
         return "unknown";
